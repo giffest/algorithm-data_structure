@@ -149,7 +149,7 @@ void pigeonholeSort(int* arr, int len) {
 }
 
 int main(int argc, const char** argv) {
-	srand(time(NULL));
+	srand(t(NULL));
 	int SIZE = 53;
 	int arr[SIZE], arr2[SIZE], arr3[SIZE], arr4[SIZE], arr5[SIZE];
 	fillArray(arr, SIZE);
