@@ -24,6 +24,13 @@ void printArray(int* arr, int len) {
 	printf("\n");
 }
 
+void copyArray(int* arr2, int* arr, int len) {
+	int i;
+	for (i = 0; i < len; i++) {
+		arr2[i] = arr[i];
+	}
+}
+
 // Линейный поиск в массиве
 int linearSearch(int* arr, int len, int value) {
 	int i = 0;
@@ -94,7 +101,7 @@ void insSort(int* arr, int len) {
 		count++;
 		int temp = arr[i];
 		int j = i;
-		while (j > 0 && arr[i - 1] > temp) {
+		while (j > 0 && arr[j - 1] > temp) {
 			count++;
 			swap(&arr[j], &arr[j - 1]);
 			j--;
@@ -141,45 +148,53 @@ int interpolationSearch(int* arr, int len, int value) {
     return - 1;
 }
 
-
 int main(int argc, const char** argv) {
 	srand(time(NULL));
 	int SIZE = 53;
-	int arr[SIZE];
+	int arr[SIZE], arr2[SIZE], arr3[SIZE];
 	fillArray(arr, SIZE);
 	printArray(arr, SIZE);
+	copyArray(arr2, arr, SIZE);
+	copyArray(arr3, arr, SIZE);
 
+	printf("Линейный поиск в массиве\n");
 	int ind = linearSearch(arr, SIZE, 9);
 	printf("index = %d\n", ind);
-	printf("Count1:%d\n", count);
+	printf("Count:%d\n", count);
 
+	printf("Линейный поиск с барьером\n");
 	count = 0;
 	int ind2 = linearSearchFlag(arr, SIZE, 9);
 	printf("index2 = %d\n", ind2);
-	printf("Count2:%d\n", count);
+	printf("Count:%d\n", count);
 
+	printf("Пузырьковая сортировка\n");
 	count = 0;
 	bubbleSort(arr, SIZE);
 	printArray(arr, SIZE);
-	printf("Count3:%d\n", count);
+	printf("Count:%d\n", count);
 
+	printf("Сортировка методом выбора\n");
 	count = 0;
-	pickSort(arr, SIZE);
-	printArray(arr, SIZE);
-	printf("Count4:%d\n", count);
+	pickSort(arr2, SIZE);
+	printArray(arr2, SIZE);
+	printf("Count:%d\n", count);
 
+	printf("Сортировка вставками\n");
 	count = 0;
-	insSort(arr, SIZE);
-	printArray(arr, SIZE);
-	printf("Count5:%d\n", count);
+	insSort(arr3, SIZE);
+	printArray(arr3, SIZE);
+	printf("Count:%d\n", count);
 
+	printf("Поиск методом половинного деления\n");
 	count = 0;
 	printf("index3 = %d\n", binarySearch(arr, SIZE, 23));
-	printf("Count6:%d\n", count);
+	printf("Count:%d\n", count);
 
+	printf("Интерполяционный поиск\n");
 	count = 0;
 	printf("index4 = %d\n", interpolationSearch(arr, SIZE, 23));
-	printf("Count7:%d", count);
+	printf("Count:%d", count);
 
     return 0;
 }
