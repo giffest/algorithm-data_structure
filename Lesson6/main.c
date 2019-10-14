@@ -1,7 +1,7 @@
 /*
  * main.c
  *
- *  Created on: Oct 11, 2019
+ *  Created on: Oct 14, 2019
  *      Author: Dmitry Shakhtorin
  */
 
@@ -73,4 +73,5 @@ int main(int argc, const char** argv) {
   printf("\n");
   return 0;
 }
+
 
