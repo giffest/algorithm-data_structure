@@ -32,11 +32,11 @@ char* bracketsСheck(const char *s) {
             char* ret = bracketsСheck(s + 1);
             return (*ret == '}') ? bracketsСheck(ret + 1) : (char*)s;
         }
-        case '[' : {
+        case '[': {
             char * ret = bracketsСheck(s + 1);
             return (*ret == ']') ? bracketsСheck(ret + 1) : (char*)s;
         }
-        default :
+        default:
             return bracketsСheck(s + 1);
     }
 }
