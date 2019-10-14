@@ -56,9 +56,7 @@ float avrg2() {
 		scanf("%d", &in);
 	}
 	if (counter	!= 0)
-//		return (float)sum / (float)counter;
 		return printf("Среднее введенных чисел: %.2f\n", (float)sum / (float)counter);
-//		return 0;
 	else
 		return -1;
 }
